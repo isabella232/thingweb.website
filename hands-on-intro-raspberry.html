@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en-us">
+		<head>
+		<meta charset="utf-8">
+		
+
+		<title> thingweb - WoT - Introduction &amp; Raspberry Pi Setup </title>
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		
+        <link rel="stylesheet" type="text/css" media="screen" href="./css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="./css/bootstrap-theme.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="./css/hover.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="./css/hover-min.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="./css/owl.carousel.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="./css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+
+		
+		<link rel="shortcut icon" href="./img/favicon/favicon.png" type="image/png">
+		<link rel="icon" href="./img/favicon/favicon.png" type="image/png">
+		
+		
+		<meta name="google-site-verification" content="086kyR2UJR794fn8Z97o9QMEJLOqCoVhPIqxYtZBSA4" />
+        
+	</head>
+	<body>
+		    	<header>
+            <div class="header-top-all">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="logo">
+                                <a href="./"><img src="./img/logo.png" class="img-fluid"/></a>
+                            </div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="mainmenu">						
+                                <nav class="navbar navbar-expand-md">
+                                   <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                    <i class="fa fa-bars"></i>
+                                  </button>
+                                  <div class="collapse navbar-collapse" id="navbarNav">
+                                    <ul class="navbar-nav">
+									  
+									  
+                                      <li class="nav-item ">
+                                        <a class="nav-link" href="./">HOME</a>
+                                      </li>
+									  
+									  	
+										
+										
+											<li class="nav-item ">
+												<a class="nav-link" href="./get-involved.html">Get involved</a>
+											</li>
+										
+											<li class="nav-item ">
+												<a class="nav-link" href="./hands-on.html">Hands-on</a>
+											</li>
+										
+											<li class="nav-item ">
+												<a class="nav-link" href="./news.html">News</a>
+											</li>
+										
+											<li class="nav-item ">
+												<a class="nav-link" href="./videos.html">Videos</a>
+											</li>
+										
+									  
+                                    </ul>
+                                  </div>
+                                </nav>
+							</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-bottom">
+                <div class="owl-carousel">
+                    <div class="item">
+                        <img src="./img/banner/banner.jpg" width="100%" alt="1">
+                        <div class="container">
+                            <div class="carousel-content-panel hidden-xs text-left" style="z-index: 0">
+                                <h1>Thingweb</h1>
+                                <p>Thingweb is a runtime and tooling for web technology that enables <br/> easy creation of applications for the Internet of Things</p>
+								
+								
+                               	<ul class="list-inline" style="z-index: 100;">
+                                <li>
+                                <a href="./hands-on.html" class="btn btn-ban-1">Hands-on</a>
+                                </li>
+                                <li>
+                                <a href="./news.html" class="btn btn-ban-2">News</a>
+                                </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+					
+                </div>
+            </div>
+            <div class="banner-shape">
+            	<img src="./img/banner/banner-shape.png" class="img-fluid" width="100%"/>
+            </div>
+    	</header>
+		
+		<div class="holder">
+		
+			<div class="wel-holder">
+				
+				<div class="container">
+					<div >
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="why-text">
+									
+									
+									
+
+<h1 id="wot-introduction-raspberry-pi-setup">WoT - Introduction &amp; Raspberry Pi Setup</h1>
+
+<p>This document aims to introduce the Web of Things (WoT) as building blocks for applications based on the IoT devices.
+As a growing area, IoT services and application have a huge potential.
+From home automation to smart-grid passing by industrial manufacturers, IoT is gaining popularity as a potential solution to address their need.
+Several technologies can be used to build an IoT application mainly because of the specific constraints of the devices.
+This creates interoperability challenges for communication between devices.
+WoT offers an approach to expose and consume IoT resources as web resources.</p>
+
+<p>WoT is an initiative by the W3C to apply on the IoT device the same principles as for the existing web resources across the Internet.
+The main idea behind WoT is exposing virtual or physical devices as a resource with a description of its capabilities.
+That resource can then be accessed from a browser or another device in the same manner as a web page.
+WoT is not a proposition for a new communication protocol between devices, it uses existing protocols to communicate with the devices according to their communication capabilities.
+It presents a set of architectural and programming patterns for building interoperable devices based on the following three fundamentals:</p>
+
+<ul>
+<li>Uniform Resource Identifier (URI) for identifying devices and their descriptions</li>
+<li>A wide variety of existing protocols for accessing the devices</li>
+<li>A description of the description as metadata used both for interoperability and presentability purposes</li>
+</ul>
+
+<h2 id="wot-architecture">WoT Architecture</h2>
+
+<p>The central component of the WoT architecture is &ldquo;WoT Servient&rdquo; which is functional virtual device.
+A Servient extends the IoT physical devices by providing standard access and control capabilities to the devices.</p>
+
+<p><img style="max-width:100%; height:auto; margin-left:auto; margin-right:auto; display:block;" src="../images/WoT_Servient_architecture.gif" alt="WoT Servient architecture"/></p>
+
+<p>A Servient provides a protocol agnostic runtime for the application using the resource model.
+Servient application uses this resource model which enables interoperability with other Servients and users that are using multiple bindings.
+Servient may act at the same time as a client and a server according to the applications&rsquo; behavior.
+The resources associated to a Servient instance are described in a Thing description.
+It uses JSON-LD to make this description readable by both humans and machines.
+Such a description enhances the machine to machine communication and makes the Things ready for the Semantic Web.</p>
+
+<p><img style="max-width:100%; height:auto; margin-left:auto; margin-right:auto; display:block;" src="../images/Deployment_scenarios.gif" alt="Deployment scenarios"/></p>
+
+<p>A Servient instance can run on multiple platforms at different layer of the IoT network.
+It can be deployed inside the IoT device itself in condition to have a minimum processing power.
+It may also be deployed inside a smart hub or edge node to adapt legacy devices to the architecture.
+This adaptation role can also be provided by a Servient deployed on the cloud.
+Last but not least, Servient instances can be accessed as web resources by a smartphone and web browsers.</p>
+
+<h1 id="setup-the-raspberry-pi-zero-w">Setup the Raspberry Pi Zero W</h1>
+
+<p>We assume that the Raspberry Pi used is a freshly installed one with Debian.
+First, it needs to be configured for a network connection.
+Second, the environment needs to be configured mainly by installing Node.js and a few other dependencies.
+Finally, things-web needs to be installed on the system.</p>
+
+<h3 id="network-configuration">Network configuration</h3>
+
+<p>Insert the SD card into your card reader and create the two following files as illustrated in the image below:</p>
+
+<p><img style="max-width:100%; height:auto; margin-left:auto; margin-right:auto; display:block;" src="../images/network_config_rpi.gif" alt="Network configuration"/></p>
+
+<p>wpa_supplicant.conf: is the file that is used to configure your WiFi on the command line.
+This file must contain the following configuration where <strong>######</strong> is your WiFi password:</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">country<span style="color:#f92672">=</span>US
+ctrl_interface<span style="color:#f92672">=</span>DIR<span style="color:#f92672">=</span>/var/run/wpa_supplicant GROUP<span style="color:#f92672">=</span>netdev
+update_config<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+network<span style="color:#f92672">={</span>
+  ssid<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IoT-testbed-2.4&#34;</span>
+  psk<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#########&#34;</span>
+  key_mgmt<span style="color:#f92672">=</span>WPA-PSK
+  proto<span style="color:#f92672">=</span>RSN
+  pairwise<span style="color:#f92672">=</span>CCMP
+  group<span style="color:#f92672">=</span>CCMP
+  auth_alg<span style="color:#f92672">=</span>OPEN
+<span style="color:#f92672">}</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h3 id="installing-node-js">Installing Node.js</h3>
+
+<p>Ideally, Node.js 10 should be installed.
+It works also with Node.js 8 but Node.js 10 is highly recommended.
+To install the Node.js version 10, make sure that the right architecture is used.
+Below the commands for the Raspberry Pi Zero W:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wot@node-wot:~$ wget https://nodejs.org/dist/v10.15.0/node-v10.15.0-linux-armv6l.tar.xz
+wot@node-wot:~$ sudo mkdir /usr/local/lib/nodejs
+wot@node-wot:~$ sudo tar -xJvf node-v10.15.0-linux-armv6l.tar.xz -C /usr/local/lib/nodejs
+wot@node-wot:~$ sudo mv /usr/local/lib/nodejs/node-v10.15.0-linux-armv6l /usr/local/lib/nodejs/node-v10.15.0
+wot@node-wot:~$ nano ~/.profile</code></pre></div>
+
+<p>Inside the <strong>~/.profile</strong>, add the following:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export NODEJS_HOME<span style="color:#f92672">=</span>/usr/local/lib/nodejs/node-v10.15.0/bin
+export PATH<span style="color:#f92672">=</span>$NODEJS_HOME:$PATH</code></pre></div>
+
+<p>.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wot@node-wot:~$ . ~/.profile
+wot@node-wot:~$ node -v
+wot@node-wot:~$ npm version</code></pre></div>
+
+<p><img style="max-width:100%; height:auto; margin-left:auto; margin-right:auto; display:block;" src="../images/install-1.gif" alt="Installation"/></p>
+
+<h3 id="cloning-the-repository">Cloning the repository</h3>
+
+<p>The reference implementation of the Web of Things is published in GitHub as node-wot project at <a href="https://github.com/eclipse/thingweb.node-wot">GitHub</a>.
+The project is part of the Eclipse Foundation.
+Use the command below to clone the repository on your local system:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wot@node-wot:~$ sudo apt install git
+wot@node-wot:~$ git clone https://github.com/eclipse/thingweb.node-wot</code></pre></div>
+
+<p><img style="max-width:100%; height:auto; margin-left:auto; margin-right:auto; display:block;" src="../images/clone-2.gif" alt="Cloning repo"/></p>
+
+<h3 id="installation">Installation</h3>
+
+<p>The installation process is composed of mainly two steps.
+The first step installs the Node.js dependences.
+The second step installs and builds the node-wot project.</p>
+
+<h4 id="installing-the-packages">Installing the packages</h4>
+
+<p>Node-wot requires dependencies such as Typescript, lerna, etc.
+By running the command below, those dependencies are installed:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wot@node-wot:~$ cd thingweb.node-wot
+wot@node-wot:~$ npm install</code></pre></div>
+
+<p><img style="max-width:100%; height:auto; margin-left:auto; margin-right:auto; display:block;" src="../images/install-3.gif" alt="Installation"/></p>
+
+<h4 id="building-the-libraries">Building the libraries</h4>
+
+<p>As the node-wot project is mainly developed using Typescript, <code>tsc</code> command needs to be executed to trans-compile that code to JavaScript.
+The command below builds the project and its packages:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wot@node-wot:~$ npm run build</code></pre></div>
+
+<p><img style="max-width:100%; height:auto; margin-left:auto; margin-right:auto; display:block;" src="../images/build-4.gif" alt="Build"/></p>
+
+<h4 id="running-the-example-servient">Running the example Servient</h4>
+
+<p>Run the command below to expose a &ldquo;server&rdquo; Servient:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wot@node-wot:~$ node packages/cli/dist/cli.js examples/scripts/counter.js</code></pre></div>
+
+<p>You can access the Thing Description generated at <a href="http://localhost:8080/counter">http://localhost:8080/counter</a>.</p>
+
+<p><img style="max-width:100%; height:auto; margin-left:auto; margin-right:auto; display:block;" src="../images/example-5.png" alt="Example"/></p>
+
+<h2 id="thing-description">Thing Description</h2>
+
+<p>The Thing Description (TD) is one major element of the web of Things approach.
+It is a JSON or JSON-LD object that describes a Thing.
+As illustrated below, it describes aspects such as name, description, list of accessible properties and list of available actions.</p>
+
+<p><img style="max-width:100%; height:auto; margin-left:auto; margin-right:auto; display:block;" src="../images/td-6.png" alt="TD"/></p>
+
+<h3 id="properties">Properties</h3>
+
+<p>The property section describes interesting information about the exposed property as illustrated below.
+It offers also the &ldquo;href&rdquo; that defines the URI that the client can use to access this property as a resource.</p>
+
+<p><img style="max-width:100%; height:auto; margin-left:auto; margin-right:auto; display:block;" src="../images/prop-7.png" alt="Properties"/></p>
+
+<h3 id="actions">Actions</h3>
+
+<p>The actions section describe the actions exposed by the Thing.
+They enable a client to remotely invoke the function associated to this action.
+Like for the properties, the actions expose an &ldquo;href&rdquo; URI that can be used to invoke those actions as illustrated below:</p>
+
+<p><img style="max-width:100%; height:auto; margin-left:auto; margin-right:auto; display:block;" src="../images/action-8.png" alt="Actions"/></p>
+
+<h3 id="standard-description">Standard description</h3>
+
+<p>The full list of the elements that can be used in a TD is available in the W3C document at <a href="https://www.w3.org/TR/wot-thing-description/">https://www.w3.org/TR/wot-thing-description/</a>.</p>
+
+<p>Once you create a Servient using the reference implementation, a TD respecting the standard is automatically generated for your exposed Thing.
+The next section describes how to create a Servient and access its TD.</p>
+
+<h2 id="a-servient">A Servient</h2>
+
+<p>Web of Things programming model is based on the notion of &ldquo;Servient&rdquo;.
+A Servient is a program developed using the WoT Scripting API and can behave at the same time as a server and a client.
+For example, a Servient can be a client for a field device (light bulb) and server for the mobile application that is used to control that device.</p>
+
+<h3 id="servient-s-structure">Servient’s structure</h3>
+
+<p>As previously stated, a Servient can be both a client and a server.
+The structure of a Servient varies depending on the target behavior.
+However, it is centered on the Thing Description.
+To expose a new Thing (server mode), you need first to create the Thing by passing some metadata to the Scripting API as illustrated below:</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">thing</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">WoT</span>.<span style="color:#a6e22e">produce</span>({
+      <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;counter&#34;</span>,
+      <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;counter example Thing&#34;</span>,
+      <span style="color:#e6db74">&#34;@context&#34;</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;https://www.w3.org/2019/wot/td/v1&#34;</span>, {<span style="color:#e6db74">&#34;iot&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;http://example.org/iot&#34;</span>}],
+      <span style="color:#a6e22e">properties</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> {
+          <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;integer&#34;</span>,
+          <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;current counter value&#34;</span>,
+          <span style="color:#e6db74">&#34;iot:Custom&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;example annotation&#34;</span>,
+          <span style="color:#a6e22e">observable</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+          <span style="color:#a6e22e">readOnly</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+        }
+      },
+      <span style="color:#a6e22e">actions</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">increment</span><span style="color:#f92672">:</span> {
+          <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Incrementing counter value (with optional step parameter as uriVariable)&#34;</span>,
+          <span style="color:#a6e22e">uriVariables</span><span style="color:#f92672">:</span> {
+            <span style="color:#a6e22e">step</span><span style="color:#f92672">:</span> { <span style="color:#e6db74">&#34;type&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;integer&#34;</span>, <span style="color:#e6db74">&#34;minimum&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;maximum&#34;</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">250</span> }
+          }
+        }
+      }
+   });
+</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>This code initiates the creation of a Thing named &ldquo;counter&rdquo; with its interactions and adds metadata such as context to that Thing.</p>
+
+<p>This will create the property, so it can be exposed and accessed both using the Scripting API and using a binding (by default, the HTTP, and CoAP bindings are used to expose Things on node-wot).</p>
+
+<p>Once your run the Servient, the exposed property will be accessible at <a href="http://localhost:8080/counter/properties/count">http://localhost:8080/counter/properties/count</a>  as illustrated below:</p>
+
+<p><img style="max-width:100%; height:auto; margin-left:auto; margin-right:auto; display:block;" src="../images/rest-9.png" alt="Result"/></p>
+
+<p>Now that we have our property exposed, we can start adding our actions.
+An action is added to Servient as described below:</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">thing</span>.<span style="color:#a6e22e">setActionHandler</span>(<span style="color:#e6db74">&#34;increment&#34;</span>, (<span style="color:#a6e22e">params</span>, <span style="color:#a6e22e">options</span>) =&gt; {
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">thing</span>.<span style="color:#a6e22e">readProperty</span>(<span style="color:#e6db74">&#34;count&#34;</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">count</span>) =&gt; {
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">step</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">options</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;object&#39;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#e6db74">&#39;uriVariables&#39;</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">options</span>) {
+                <span style="color:#66d9ef">if</span> (<span style="color:#e6db74">&#39;step&#39;</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">options</span>[<span style="color:#e6db74">&#39;uriVariables&#39;</span>] <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">options</span>[<span style="color:#e6db74">&#39;uriVariables&#39;</span>] <span style="color:#66d9ef">instanceof</span> Array) {
+                    <span style="color:#a6e22e">step</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">options</span>[<span style="color:#e6db74">&#39;uriVariables&#39;</span>][<span style="color:#e6db74">&#39;step&#39;</span>];
+                }
+            }
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">count</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">step</span>;
+            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Incrementing count from &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">count</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; to &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">value</span>);
+            <span style="color:#a6e22e">thing</span>.<span style="color:#a6e22e">writeProperty</span>(<span style="color:#e6db74">&#34;count&#34;</span>, <span style="color:#a6e22e">value</span>);
+        });
+    });
+</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Within an action, you can retrieve properties using the &ldquo;readProperty()&rdquo; function and write the value to the Thing once your value manipulated using the &ldquo;writeProperty()&rdquo; function.</p>
+
+<p>The full counter example is available in the repository under <code>examples/scripts/counter.js</code>.</p>
+
+<h3 id="client-mode">Client Mode</h3>
+
+<p>Node-wot allows you also to consume existing Things exposed using the WoT.
+Assume that we have our counter example running on a machine, we can create a &ldquo;client&rdquo; to communicate with that counter.</p>
+
+<p>First step is to create the Thing that we are willing to consume.
+For that, we use the exposed Thing descriptor to create that &ldquo;client&rdquo; Thing as illustrated below:</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">WoTHelpers</span>.<span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#34;http://localhost:8080/counter&#34;</span>).<span style="color:#a6e22e">then</span>( <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">td</span>) =&gt; {
+
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">thing</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">WoT</span>.<span style="color:#a6e22e">consume</span>(<span style="color:#a6e22e">td</span>);
+
+}).<span style="color:#66d9ef">catch</span>( (<span style="color:#a6e22e">err</span>) =&gt; { <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;Fetch error:&#34;</span>, <span style="color:#a6e22e">err</span>); });
+</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>The created Thing enables access to all the properties and actions exposed by the &ldquo;server&rdquo; Thing.
+They can be accessed as described below:</p>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// read property #1
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">read1</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">thing</span>.<span style="color:#a6e22e">readProperty</span>(<span style="color:#e6db74">&#34;count&#34;</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#34;count value is&#34;</span>, <span style="color:#a6e22e">read1</span>);
+</code></pre></td></tr></table>
+</div>
+</div>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// increment property #1
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">await</span> <span style="color:#a6e22e">thing</span>.<span style="color:#a6e22e">invokeAction</span>(<span style="color:#e6db74">&#34;increment&#34;</span>);
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">inc1</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">thing</span>.<span style="color:#a6e22e">readProperty</span>(<span style="color:#e6db74">&#34;count&#34;</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#34;count value after increment #1 is&#34;</span>, <span style="color:#a6e22e">inc1</span>);
+</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>Modifying those properties by invoking the actions result on modifications on the &ldquo;server&rdquo; Thing.
+The full client example is available in the repository at <code>examples/scripts/counter-client.js</code>, which can be run using the same <code>cli.js</code> but with the <code>--clientonly</code> flag:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wot@node-wot:~$ node packages/cli/dist/cli.js examples/scripts/counter.js --clientonly</code></pre></div>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>WoT presents an interesting approach to build IoT applications.
+Its adoption by the industry will be a significant step towards fighting the risk of fragmentation that may limit the development of IoT applications.
+The Scripting API provides a way to substantially increase the interoperability.</p>
+
+<h2 id="references">References</h2>
+
+<ol>
+<li><a href="https://www.w3.org/TR/wot-architecture/">https://www.w3.org/TR/wot-architecture/</a></li>
+<li><a href="https://github.com/w3c/wot">https://github.com/w3c/wot</a></li>
+</ol>
+
+									
+									
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<div class="footer-shape">
+        	<img src="./img/others/footer-shape.jpg" class="img-fluid" width="100%"/>
+        </div>
+        <footer>
+        	<div class="container sp">
+				
+                <div class="foot-link text-center">
+                	<ul class="list-inline">     
+                    	<li><a href="./">Home</a></li>
+                        <li>|</li>
+                        
+                        <li><a href="https://github.com/eclipse/thingweb.node-wot/">Project on Github</a></li>
+                        <li>|</li>
+                        
+                        <li><a href="./get-involved.html">Contact us</a></li>
+                    </ul>
+                </div>
+                <div class="copy text-center">
+                	<p>Copyrights &copy; 2020 Thingweb. All Rights Reserved. <span>|</span> <a href="http://www.eclipse.org/legal/termsofuse.php">Terms of Use</a> <span>|</span> <a href="http://www.eclipse.org/legal/privacy.php">Privacy  Policy</a></p>
+                </div>
+            </div>
+        </footer>
+    	
+        <script type="text/javascript" src="./js/jquery-1.11.3.min.js" language="javascript"></script>
+        <script type="text/javascript" src="./js/bootstrap.min.js" language="javascript"></script>
+		<script type="text/javascript" src="./js/custom.js" language="javascript"></script>
+        <script type="text/javascript" src="./js/owl.carousel.js" ></script>	
+    </body>
+</html>
